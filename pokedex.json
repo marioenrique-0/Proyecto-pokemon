@@ -1,0 +1,446 @@
+{
+  "Ditto": {
+    "numero": 132,
+    "descripcion": "Puede reorganizar su estructura celular para adoptar la forma de cualquier ser vivo.",
+    "tipos": [
+      "Normal"
+    ],
+    "estadisticas": {
+      "hp": 48,
+      "velocidad": 48
+    },
+    "ataques": {}
+  },
+  "Eevee": {
+    "numero": 133,
+    "descripcion": "Tiene una estructura genética irregular que le permite evolucionar a múltiples formas dependiendo de su entorno o las piedras evolutivas.",
+    "tipos": [
+      "Normal"
+    ],
+    "estadisticas": {
+      "hp": 55,
+      "velocidad": 55
+    },
+    "ataques": {}
+  },
+  "Vaporeon": {
+    "numero": 134,
+    "descripcion": "Su composición celular es similar a las moléculas de agua, lo que le permite fundirse con ella y volverse invisible al nadar.",
+    "tipos": [
+      "Agua"
+    ],
+    "estadisticas": {
+      "hp": 130,
+      "velocidad": 65
+    },
+    "ataques": {}
+  },
+  "Jolteon": {
+    "numero": 135,
+    "descripcion": "Acumula iones negativos en la atmósfera para lanzar rayos de hasta 10.000 voltios. Su pelaje se eriza como agujas.",
+    "tipos": [
+      "Eléctrico"
+    ],
+    "estadisticas": {
+      "hp": 65,
+      "velocidad": 130
+    },
+    "ataques": {}
+  },
+  "Flareon": {
+    "numero": 136,
+    "descripcion": "Tiene una bolsa de fuego en su interior. Exhala llamas que alcanzan los 1.700 grados centígrados cuando se enfurece.",
+    "tipos": [
+      "Fuego"
+    ],
+    "estadisticas": {
+      "hp": 65,
+      "velocidad": 65
+    },
+    "ataques": {}
+  },
+  "Chikorita": {
+    "numero": 152,
+    "descripcion": "Usa la hoja de su cabeza para buscar sitios cálidos. Su dulce aroma tiene el poder de apaciguar los ánimos.",
+    "tipos": [
+      "Planta"
+    ],
+    "estadisticas": {
+      "hp": 45,
+      "velocidad": 45
+    },
+    "ataques": {}
+  },
+  "Bayleef": {
+    "numero": 153,
+    "descripcion": "El aroma que emana de los capullos tubulares de su cuello hace que quienes lo huelan se llenen de vitalidad y energía.",
+    "tipos": [
+      "Planta"
+    ],
+    "estadisticas": {
+      "hp": 60,
+      "velocidad": 60
+    },
+    "ataques": {}
+  },
+  "Meganium": {
+    "numero": 154,
+    "descripcion": "El aroma de sus pétalos calma las emociones. Su aliento tiene el misterioso poder de revivir plantas marchitas.",
+    "tipos": [
+      "Planta"
+    ],
+    "estadisticas": {
+      "hp": 80,
+      "velocidad": 80
+    },
+    "ataques": {}
+  },
+  "Espeon": {
+    "numero": 196,
+    "descripcion": "Predice los movimientos de su rival y los cambios de clima gracias al finísimo y sensible pelaje que lo recubre.",
+    "tipos": [
+      "Psíquico"
+    ],
+    "estadisticas": {
+      "hp": 65,
+      "velocidad": 110
+    },
+    "ataques": {}
+  },
+  "Umbreon": {
+    "numero": 197,
+    "descripcion": "Cuando se enfada, segrega un sudor venenoso para protegerse. Los anillos de su cuerpo brillan en la oscuridad.",
+    "tipos": [
+      "Siniestro"
+    ],
+    "estadisticas": {
+      "hp": 95,
+      "velocidad": 65
+    },
+    "ataques": {}
+  },
+  "Ralts": {
+    "numero": 280,
+    "descripcion": "Percibe las emociones de las personas gracias a los cuernos de su cabeza. Se acerca a quienes tienen un corazón puro.",
+    "tipos": [
+      "Psíquico",
+      "Hada"
+    ],
+    "estadisticas": {
+      "hp": 28,
+      "velocidad": 40
+    },
+    "ataques": {}
+  },
+  "Kirlia": {
+    "numero": 281,
+    "descripcion": "Se dice que, si su Entrenador está muy feliz, Kirlia rebosará de energía y bailará dando vueltas con gran alegría.",
+    "tipos": [
+      "Psíquico",
+      "Hada"
+    ],
+    "estadisticas": {
+      "hp": 38,
+      "velocidad": 50
+    },
+    "ataques": {}
+  },
+  "Gardevoir": {
+    "numero": 282,
+    "descripcion": "Para proteger a su Entrenador, este Pokémon es capaz de sacrificar su propia vida y crear un pequeño agujero negro.",
+    "tipos": [
+      "Psíquico",
+      "Hada"
+    ],
+    "estadisticas": {
+      "hp": 68,
+      "velocidad": 80
+    },
+    "ataques": {}
+  },
+  "Rayquaza": {
+    "numero": 384,
+    "descripcion": "Vive en la capa de ozono, muy por encima de las nubes. Se alimenta de meteoritos y de la energía de la atmósfera.",
+    "tipos": [
+      "Dragón",
+      "Volador"
+    ],
+    "estadisticas": {
+      "hp": 105,
+      "velocidad": 95
+    },
+    "ataques": {}
+  },
+  "Deoxys": {
+    "numero": 386,
+    "descripcion": "Un virus espacial que mutó al ser expuesto a un rayo láser. Es altamente inteligente y puede alterar su forma física.",
+    "tipos": [
+      "Psíquico"
+    ],
+    "estadisticas": {
+      "hp": 50,
+      "velocidad": 150
+    },
+    "ataques": {}
+  },
+  "Piplup": {
+    "numero": 393,
+    "descripcion": "Es muy orgulloso y odia aceptar comida de la gente. Su grueso plumaje lo protege del frío extremo.",
+    "tipos": [
+      "Agua"
+    ],
+    "estadisticas": {
+      "hp": 53,
+      "velocidad": 40
+    },
+    "ataques": {}
+  },
+  "Prinplup": {
+    "numero": 394,
+    "descripcion": "Vive en completa soledad. Considera que sus alas son las más hermosas de todas y no se agrupa con otros de su especie.",
+    "tipos": [
+      "Agua"
+    ],
+    "estadisticas": {
+      "hp": 64,
+      "velocidad": 50
+    },
+    "ataques": {}
+  },
+  "Empoleon": {
+    "numero": 395,
+    "descripcion": "Cualquiera que hiera su orgullo será rebanado por sus alas, que son tan afiladas que pueden partir hielo a la deriva.",
+    "tipos": [
+      "Agua",
+      "Acero"
+    ],
+    "estadisticas": {
+      "hp": 84,
+      "velocidad": 60
+    },
+    "ataques": {}
+  },
+  "Buneary": {
+    "numero": 427,
+    "descripcion": "Cuando siente peligro, levanta ambas orejas. Su patada es tan fuerte que puede romper rocas de un solo golpe.",
+    "tipos": [
+      "Normal"
+    ],
+    "estadisticas": {
+      "hp": 55,
+      "velocidad": 85
+    },
+    "ataques": {}
+  },
+  "Lopunny": {
+    "numero": 428,
+    "descripcion": "Es muy cauteloso. Si siente peligro, huye dando saltos. Sus ágiles patadas son extremadamente destructivas.",
+    "tipos": [
+      "Normal"
+    ],
+    "estadisticas": {
+      "hp": 65,
+      "velocidad": 105
+    },
+    "ataques": {}
+  },
+  "Leafeon": {
+    "numero": 470,
+    "descripcion": "Al igual que las plantas, realiza la fotosíntesis. Por eso siempre está rodeado de aire puro y fresco.",
+    "tipos": [
+      "Planta"
+    ],
+    "estadisticas": {
+      "hp": 65,
+      "velocidad": 95
+    },
+    "ataques": {}
+  },
+  "Glaceon": {
+    "numero": 471,
+    "descripcion": "Controla su temperatura corporal para congelar la humedad del aire y crear pequeños cristales de hielo defensivos.",
+    "tipos": [
+      "Hielo"
+    ],
+    "estadisticas": {
+      "hp": 65,
+      "velocidad": 65
+    },
+    "ataques": {}
+  },
+  "Gallade": {
+    "numero": 475,
+    "descripcion": "Es un maestro de la cortesía y la esgrima. Lucha valientemente usando las cuchillas extensibles de sus codos.",
+    "tipos": [
+      "Psíquico",
+      "Lucha"
+    ],
+    "estadisticas": {
+      "hp": 68,
+      "velocidad": 80
+    },
+    "ataques": {}
+  },
+  "Drilbur": {
+    "numero": 529,
+    "descripcion": "Cruza el subsuelo girando su cuerpo a gran velocidad, alcanzando hasta 50 km/h mientras excava.",
+    "tipos": [
+      "Tierra"
+    ],
+    "estadisticas": {
+      "hp": 60,
+      "velocidad": 68
+    },
+    "ataques": {}
+  },
+  "Excadrill": {
+    "numero": 530,
+    "descripcion": "Sus garras y su cabeza de acero se unen para formar un taladro capaz de perforar gruesas planchas de hierro.",
+    "tipos": [
+      "Tierra",
+      "Acero"
+    ],
+    "estadisticas": {
+      "hp": 110,
+      "velocidad": 88
+    },
+    "ataques": {}
+  },
+  "Espurr": {
+    "numero": 677,
+    "descripcion": "Contiene un inmenso poder psíquico. Mantiene siempre la misma expresión vacía para evitar liberar su energía de golpe.",
+    "tipos": [
+      "Psíquico"
+    ],
+    "estadisticas": {
+      "hp": 62,
+      "velocidad": 68
+    },
+    "ataques": {}
+  },
+  "Meowstic": {
+    "numero": 678,
+    "descripcion": "Los diseños en forma de ojo del interior de sus orejas emiten un poder psíquico abrumador que puede triturar camiones.",
+    "tipos": [
+      "Psíquico"
+    ],
+    "estadisticas": {
+      "hp": 74,
+      "velocidad": 104
+    },
+    "ataques": {}
+  },
+  "Sylveon": {
+    "numero": 700,
+    "descripcion": "Envuelve a sus presas y a su Entrenador con sus apéndices sensitivos, los cuales emiten un aura que borra la hostilidad.",
+    "tipos": [
+      "Hada"
+    ],
+    "estadisticas": {
+      "hp": 95,
+      "velocidad": 60
+    },
+    "ataques": {}
+  },
+  "Mimikyu": {
+    "numero": 778,
+    "descripcion": "Vive bajo un saco de tela que imita a Pikachu para poder hacer amigos. Se dice que si ves su verdadera forma, caerás enfermo.",
+    "tipos": [
+      "Fantasma",
+      "Hada"
+    ],
+    "estadisticas": {
+      "hp": 55,
+      "velocidad": 96
+    },
+    "ataques": {}
+  },
+  "Scorbunny": {
+    "numero": 813,
+    "descripcion": "Correr en círculos eleva su temperatura corporal y despierta su energía ígnea latente, dándole más potencia.",
+    "tipos": [
+      "Fuego"
+    ],
+    "estadisticas": {
+      "hp": 50,
+      "velocidad": 69
+    },
+    "ataques": {}
+  },
+  "Raboot": {
+    "numero": 814,
+    "descripcion": "Su espeso pelaje lo protege del frío y le permite concentrar su energía térmica para usar potentes ataques con sus patas.",
+    "tipos": [
+      "Fuego"
+    ],
+    "estadisticas": {
+      "hp": 65,
+      "velocidad": 94
+    },
+    "ataques": {}
+  },
+  "Cinderace": {
+    "numero": 815,
+    "descripcion": "Patea guijarros convirtiéndolos en balones de fuego ardiente para atacar a sus rivales con una precisión milimétrica.",
+    "tipos": [
+      "Fuego"
+    ],
+    "estadisticas": {
+      "hp": 80,
+      "velocidad": 119
+    },
+    "ataques": {}
+  },
+  "Urshifu": {
+    "numero": 892,
+    "descripcion": "Posee un estilo de combate implacable. Se dice que un solo golpe de sus puños es suficiente para derribar a cualquiera.",
+    "tipos": [
+      "Lucha",
+      "Siniestro"
+    ],
+    "estadisticas": {
+      "hp": 100,
+      "velocidad": 97
+    },
+    "ataques": {}
+  },
+  "Tinkatink": {
+    "numero": 957,
+    "descripcion": "Golpea rocas y minerales con su martillo artesanal, el cual protege celosamente y nunca suelta por nada del mundo.",
+    "tipos": [
+      "Hada",
+      "Acero"
+    ],
+    "estadisticas": {
+      "hp": 50,
+      "velocidad": 58
+    },
+    "ataques": {}
+  },
+  "Tinkatuff": {
+    "numero": 958,
+    "descripcion": "Ataca a otros Pokémon de tipo Acero para robarles sus piezas de metal y poder forjar un martillo más grande y fuerte.",
+    "tipos": [
+      "Hada",
+      "Acero"
+    ],
+    "estadisticas": {
+      "hp": 65,
+      "velocidad": 78
+    },
+    "ataques": {}
+  },
+  "Tinkaton": {
+    "numero": 959,
+    "descripcion": "Balancea su gigantesco martillo de más de 100 kg como si nada. Lanza rocas al cielo para golpear a los Corviknight en pleno vuelo.",
+    "tipos": [
+      "Hada",
+      "Acero"
+    ],
+    "estadisticas": {
+      "hp": 85,
+      "velocidad": 94
+    },
+    "ataques": {}
+  }
+}
