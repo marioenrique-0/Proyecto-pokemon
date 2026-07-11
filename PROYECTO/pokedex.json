@@ -3,7 +3,7 @@
     "numero": 25,
     "descripcion": "Cuando se enfada, este Pokémon descarga la energía que almacena en el interior de las bolsas de las mejillas.",
     "tipos": ["Eléctrico"],
-    "estadisticas": {"hp": 35, "ataque": 55, "defensa": 40, "velocidad": 90},
+    "estadisticas": {"hp": 125, "ataque": 90, "defensa": 75, "velocidad": 115},
     "ataques": {
       "Impactrueno": {"tipo": "Eléctrico", "potencia": 40, "precision": 100},
       "Ataque Rápido": {"tipo": "Normal", "potencia": 40, "precision": 100},
@@ -16,7 +16,7 @@
     "numero": 26,
     "descripcion": "Si acumula demasiada electricidad, se vuelve muy agresivo.",
     "tipos": ["Eléctrico"],
-    "estadisticas": {"hp": 60, "ataque": 90, "defensa": 55, "velocidad": 110},
+    "estadisticas": {"hp": 145, "ataque": 115, "defensa": 90, "velocidad": 130},
     "ataques": {
       "Rayo": {"tipo": "Eléctrico", "potencia": 90, "precision": 100},
       "Voltio Cambio": {"tipo": "Eléctrico", "potencia": 70, "precision": 100},
@@ -25,24 +25,11 @@
     },
     "sprite": "Sprites/raichu.png"
   },
-  "Ditto": {
-    "numero": 132,
-    "descripcion": "Puede reorganizar su estructura celular para adoptar la forma de cualquier ser vivo.",
-    "tipos": ["Normal"],
-    "estadisticas": {"hp": 48, "ataque": 48, "defensa": 48, "velocidad": 48},
-    "ataques": {
-      "Golpe": {"tipo": "Normal", "potencia": 40, "precision": 100},
-      "Doble Golpe": {"tipo": "Normal", "potencia": 35, "precision": 90},
-      "Cabezazo": {"tipo": "Normal", "potencia": 70, "precision": 100},
-      "Golpe Cuerpo": {"tipo": "Normal", "potencia": 85, "precision": 100}
-    },
-    "sprite": "Sprites/ditto.png"
-  },
   "Eevee": {
     "numero": 133,
     "descripcion": "Tiene una estructura genética irregular que le permite evolucionar a múltiples formas.",
     "tipos": ["Normal"],
-    "estadisticas": {"hp": 55, "ataque": 55, "defensa": 50, "velocidad": 55},
+    "estadisticas": {"hp": 145, "ataque": 90, "defensa": 85, "velocidad": 90},
     "ataques": {
       "Rapidez": {"tipo": "Normal", "potencia": 60, "precision": 100},
       "Ataque Rápido": {"tipo": "Normal", "potencia": 40, "precision": 100},
@@ -55,7 +42,7 @@
     "numero": 134,
     "descripcion": "Su composición celular es similar a las moléculas de agua.",
     "tipos": ["Agua"],
-    "estadisticas": {"hp": 130, "ataque": 65, "defensa": 60, "velocidad": 65},
+    "estadisticas": {"hp": 205, "ataque": 95, "defensa": 90, "velocidad": 95},
     "ataques": {
       "Hidrobomba": {"tipo": "Agua", "potencia": 110, "precision": 80},
       "Surf": {"tipo": "Agua", "potencia": 90, "precision": 100},
@@ -68,7 +55,7 @@
     "numero": 135,
     "descripcion": "Acumula iones negativos para lanzar rayos de hasta 10.000 voltios.",
     "tipos": ["Eléctrico"],
-    "estadisticas": {"hp": 65, "ataque": 65, "defensa": 60, "velocidad": 130},
+    "estadisticas": {"hp": 150, "ataque": 95, "defensa": 90, "velocidad": 150},
     "ataques": {
       "Rayo": {"tipo": "Eléctrico", "potencia": 90, "precision": 100},
       "Trueno": {"tipo": "Eléctrico", "potencia": 110, "precision": 70},
@@ -81,7 +68,7 @@
     "numero": 136,
     "descripcion": "Tiene una bolsa de fuego en su interior. Exhala llamas ardientes.",
     "tipos": ["Fuego"],
-    "estadisticas": {"hp": 65, "ataque": 130, "defensa": 60, "velocidad": 65},
+    "estadisticas": {"hp": 150, "ataque": 150, "defensa": 90, "velocidad": 95},
     "ataques": {
       "Lanzallamas": {"tipo": "Fuego", "potencia": 90, "precision": 100},
       "Colmillo Ígneo": {"tipo": "Fuego", "potencia": 65, "precision": 95},
@@ -94,7 +81,7 @@
     "numero": 144,
     "descripcion": "Un Pokémon pájaro legendario que puede controlar el hielo.",
     "tipos": ["Hielo", "Volador"],
-    "estadisticas": {"hp": 90, "ataque": 85, "defensa": 100, "velocidad": 85},
+    "estadisticas": {"hp": 170, "ataque": 110, "defensa": 120, "velocidad": 110},
     "ataques": {
       "Ventisca": {"tipo": "Hielo", "potencia": 110, "precision": 70},
       "Rayo Hielo": {"tipo": "Hielo", "potencia": 90, "precision": 100},
@@ -107,7 +94,7 @@
     "numero": 152,
     "descripcion": "Usa la hoja de su cabeza para buscar sitios cálidos.",
     "tipos": ["Planta"],
-    "estadisticas": {"hp": 45, "ataque": 49, "defensa": 65, "velocidad": 45},
+    "estadisticas": {"hp": 135, "ataque": 84, "defensa": 95, "velocidad": 80},
     "ataques": {
       "Hoja Afilada": {"tipo": "Planta", "potencia": 55, "precision": 95},
       "Látigo Cepa": {"tipo": "Planta", "potencia": 45, "precision": 100},
@@ -120,7 +107,7 @@
     "numero": 153,
     "descripcion": "El aroma que emana de los capullos tubulares de su cuello llena de energía.",
     "tipos": ["Planta"],
-    "estadisticas": {"hp": 60, "ataque": 62, "defensa": 80, "velocidad": 60},
+    "estadisticas": {"hp": 145, "ataque": 92, "defensa": 105, "velocidad": 90},
     "ataques": {
       "Hoja Afilada": {"tipo": "Planta", "potencia": 55, "precision": 95},
       "Cuerpo Pesado": {"tipo": "Acero", "potencia": 80, "precision": 100},
@@ -133,7 +120,7 @@
     "numero": 154,
     "descripcion": "El aroma de sus pétalos calma las emociones.",
     "tipos": ["Planta"],
-    "estadisticas": {"hp": 80, "ataque": 82, "defensa": 100, "velocidad": 80},
+    "estadisticas": {"hp": 160, "ataque": 107, "defensa": 120, "velocidad": 105},
     "ataques": {
       "Rayo Solar": {"tipo": "Planta", "potencia": 120, "precision": 100},
       "Energibola": {"tipo": "Planta", "potencia": 80, "precision": 100},
@@ -146,7 +133,7 @@
     "numero": 196,
     "descripcion": "Predice los movimientos de su rival gracias a su pelaje sensible.",
     "tipos": ["Psíquico"],
-    "estadisticas": {"hp": 65, "ataque": 65, "defensa": 60, "velocidad": 110},
+    "estadisticas": {"hp": 150, "ataque": 95, "defensa": 90, "velocidad": 130},
     "ataques": {
       "Psíquico": {"tipo": "Psíquico", "potencia": 90, "precision": 100},
       "Bola Sombra": {"tipo": "Fantasma", "potencia": 80, "precision": 100},
@@ -159,7 +146,7 @@
     "numero": 197,
     "descripcion": "Cuando se enfada, segrega un sudor venenoso para protegerse.",
     "tipos": ["Siniestro"],
-    "estadisticas": {"hp": 95, "ataque": 65, "defensa": 110, "velocidad": 65},
+    "estadisticas": {"hp": 175, "ataque": 95, "defensa": 130, "velocidad": 95},
     "ataques": {
       "Juego Sucio": {"tipo": "Siniestro", "potencia": 95, "precision": 100},
       "Finta": {"tipo": "Siniestro", "potencia": 60, "precision": 100},
@@ -172,7 +159,7 @@
     "numero": 280,
     "descripcion": "Percibe las emociones de las personas gracias a sus cuernos.",
     "tipos": ["Psíquico", "Hada"],
-    "estadisticas": {"hp": 28, "ataque": 25, "defensa": 25, "velocidad": 40},
+    "estadisticas": {"hp": 118, "ataque": 60, "defensa": 60, "velocidad": 75},
     "ataques": {
       "Confusión": {"tipo": "Psíquico", "potencia": 50, "precision": 100},
       "Golpe": {"tipo": "Normal", "potencia": 40, "precision": 100},
@@ -185,7 +172,7 @@
     "numero": 281,
     "descripcion": "Si su Entrenador está feliz, Kirlia rebosa energía.",
     "tipos": ["Psíquico", "Hada"],
-    "estadisticas": {"hp": 38, "ataque": 35, "defensa": 35, "velocidad": 50},
+    "estadisticas": {"hp": 128, "ataque": 70, "defensa": 70, "velocidad": 85},
     "ataques": {
       "Psíquico": {"tipo": "Psíquico", "potencia": 90, "precision": 100},
       "Brillo Mágico": {"tipo": "Hada", "potencia": 80, "precision": 100},
@@ -198,7 +185,7 @@
     "numero": 282,
     "descripcion": "Para proteger a su Entrenador, es capaz de sacrificar su propia vida.",
     "tipos": ["Psíquico", "Hada"],
-    "estadisticas": {"hp": 68, "ataque": 65, "defensa": 65, "velocidad": 80},
+    "estadisticas": {"hp": 153, "ataque": 95, "defensa": 95, "velocidad": 105},
     "ataques": {
       "Psíquico": {"tipo": "Psíquico", "potencia": 90, "precision": 100},
       "Fuerza Lunar": {"tipo": "Hada", "potencia": 95, "precision": 100},
@@ -211,7 +198,7 @@
     "numero": 384,
     "descripcion": "Vive en la capa de ozono, alimentándose de meteoritos.",
     "tipos": ["Dragón", "Volador"],
-    "estadisticas": {"hp": 105, "ataque": 150, "defensa": 90, "velocidad": 95},
+    "estadisticas": {"hp": 180, "ataque": 170, "defensa": 115, "velocidad": 120},
     "ataques": {
       "Ascenso Draco": {"tipo": "Dragón", "potencia": 120, "precision": 100},
       "Garra Dragón": {"tipo": "Dragón", "potencia": 80, "precision": 100},
@@ -224,7 +211,7 @@
     "numero": 386,
     "descripcion": "Un virus espacial que mutó al ser expuesto a un rayo láser.",
     "tipos": ["Psíquico"],
-    "estadisticas": {"hp": 50, "ataque": 150, "defensa": 50, "velocidad": 150},
+    "estadisticas": {"hp": 140, "ataque": 170, "defensa": 85, "velocidad": 170},
     "ataques": {
       "Psicocorte": {"tipo": "Psíquico", "potencia": 70, "precision": 100},
       "Psíquico": {"tipo": "Psíquico", "potencia": 90, "precision": 100},
@@ -237,7 +224,7 @@
     "numero": 393,
     "descripcion": "Es muy orgulloso y odia aceptar comida de la gente.",
     "tipos": ["Agua"],
-    "estadisticas": {"hp": 53, "ataque": 51, "defensa": 53, "velocidad": 40},
+    "estadisticas": {"hp": 143, "ataque": 86, "defensa": 88, "velocidad": 75},
     "ataques": {
       "Pico Taladro": {"tipo": "Volador", "potencia": 80, "precision": 100},
       "Burbuja": {"tipo": "Agua", "potencia": 40, "precision": 100},
@@ -250,7 +237,7 @@
     "numero": 394,
     "descripcion": "Vive en completa soledad y considera sus alas hermosas.",
     "tipos": ["Agua"],
-    "estadisticas": {"hp": 64, "ataque": 66, "defensa": 68, "velocidad": 50},
+    "estadisticas": {"hp": 149, "ataque": 96, "defensa": 98, "velocidad": 85},
     "ataques": {
       "Pico Taladro": {"tipo": "Volador", "potencia": 80, "precision": 100},
       "Surf": {"tipo": "Agua", "potencia": 90, "precision": 100},
@@ -263,7 +250,7 @@
     "numero": 395,
     "descripcion": "Sus alas afiladas pueden partir hielo a la deriva.",
     "tipos": ["Agua", "Acero"],
-    "estadisticas": {"hp": 84, "ataque": 86, "defensa": 88, "velocidad": 60},
+    "estadisticas": {"hp": 164, "ataque": 111, "defensa": 113, "velocidad": 90},
     "ataques": {
       "Foco Resplandor": {"tipo": "Acero", "potencia": 80, "precision": 100},
       "Surf": {"tipo": "Agua", "potencia": 90, "precision": 100},
@@ -276,7 +263,7 @@
     "numero": 427,
     "descripcion": "Su patada es tan fuerte que puede romper rocas.",
     "tipos": ["Normal"],
-    "estadisticas": {"hp": 55, "ataque": 66, "defensa": 44, "velocidad": 85},
+    "estadisticas": {"hp": 145, "ataque": 96, "defensa": 79, "velocidad": 110},
     "ataques": {
       "Patada Salto": {"tipo": "Lucha", "potencia": 100, "precision": 95},
       "Ataque Rápido": {"tipo": "Normal", "potencia": 40, "precision": 100},
@@ -289,7 +276,7 @@
     "numero": 428,
     "descripcion": "Es muy cauteloso y sus ágiles patadas son destructivas.",
     "tipos": ["Normal"],
-    "estadisticas": {"hp": 65, "ataque": 76, "defensa": 84, "velocidad": 105},
+    "estadisticas": {"hp": 150, "ataque": 101, "defensa": 109, "velocidad": 125},
     "ataques": {
       "Patada Salto Alta": {"tipo": "Lucha", "potencia": 130, "precision": 90},
       "Retribución": {"tipo": "Normal", "potencia": 102, "precision": 100},
@@ -302,7 +289,7 @@
     "numero": 470,
     "descripcion": "Realiza la fotosíntesis, rodeado siempre de aire puro.",
     "tipos": ["Planta"],
-    "estadisticas": {"hp": 65, "ataque": 110, "defensa": 130, "velocidad": 95},
+    "estadisticas": {"hp": 150, "ataque": 130, "defensa": 150, "velocidad": 120},
     "ataques": {
       "Hoja Aguda": {"tipo": "Planta", "potencia": 90, "precision": 100},
       "Espada Santa": {"tipo": "Lucha", "potencia": 90, "precision": 100},
@@ -315,7 +302,7 @@
     "numero": 471,
     "descripcion": "Controla su temperatura para crear cristales de hielo.",
     "tipos": ["Hielo"],
-    "estadisticas": {"hp": 65, "ataque": 60, "defensa": 110, "velocidad": 65},
+    "estadisticas": {"hp": 150, "ataque": 90, "defensa": 130, "velocidad": 95},
     "ataques": {
       "Rayo Hielo": {"tipo": "Hielo", "potencia": 90, "precision": 100},
       "Vaho Gélido": {"tipo": "Hielo", "potencia": 60, "precision": 90},
@@ -328,7 +315,7 @@
     "numero": 475,
     "descripcion": "Maestro de la cortesía y la esgrima, lucha con cuchillas.",
     "tipos": ["Psíquico", "Lucha"],
-    "estadisticas": {"hp": 68, "ataque": 125, "defensa": 65, "velocidad": 80},
+    "estadisticas": {"hp": 153, "ataque": 145, "defensa": 95, "velocidad": 105},
     "ataques": {
       "Psicocorte": {"tipo": "Psíquico", "potencia": 70, "precision": 100},
       "A Bocajarro": {"tipo": "Lucha", "potencia": 120, "precision": 100},
@@ -341,7 +328,7 @@
     "numero": 529,
     "descripcion": "Cruza el subsuelo girando su cuerpo a gran velocidad.",
     "tipos": ["Tierra"],
-    "estadisticas": {"hp": 60, "ataque": 85, "defensa": 40, "velocidad": 68},
+    "estadisticas": {"hp": 145, "ataque": 110, "defensa": 75, "velocidad": 98},
     "ataques": {
       "Excavar": {"tipo": "Tierra", "potencia": 80, "precision": 100},
       "Garra Metal": {"tipo": "Acero", "potencia": 50, "precision": 95},
@@ -354,7 +341,7 @@
     "numero": 530,
     "descripcion": "Taladro capaz de perforar gruesas planchas de hierro.",
     "tipos": ["Tierra", "Acero"],
-    "estadisticas": {"hp": 110, "ataque": 135, "defensa": 60, "velocidad": 88},
+    "estadisticas": {"hp": 185, "ataque": 155, "defensa": 90, "velocidad": 113},
     "ataques": {
       "Terremoto": {"tipo": "Tierra", "potencia": 100, "precision": 100},
       "Cabeza de Hierro": {"tipo": "Acero", "potencia": 80, "precision": 100},
@@ -367,7 +354,7 @@
     "numero": 677,
     "descripcion": "Contiene un inmenso poder psíquico.",
     "tipos": ["Psíquico"],
-    "estadisticas": {"hp": 62, "ataque": 48, "defensa": 54, "velocidad": 68},
+    "estadisticas": {"hp": 147, "ataque": 83, "defensa": 89, "velocidad": 98},
     "ataques": {
       "Confusión": {"tipo": "Psíquico", "potencia": 50, "precision": 100},
       "Golpe": {"tipo": "Normal", "potencia": 40, "precision": 100},
@@ -380,7 +367,7 @@
     "numero": 678,
     "descripcion": "Los diseños de sus orejas emiten poder psíquico.",
     "tipos": ["Psíquico"],
-    "estadisticas": {"hp": 74, "ataque": 48, "defensa": 76, "velocidad": 104},
+    "estadisticas": {"hp": 159, "ataque": 83, "defensa": 101, "velocidad": 124},
     "ataques": {
       "Psíquico": {"tipo": "Psíquico", "potencia": 90, "precision": 100},
       "Bola Sombra": {"tipo": "Fantasma", "potencia": 80, "precision": 100},
@@ -393,7 +380,7 @@
     "numero": 700,
     "descripcion": "Emite un aura que borra la hostilidad.",
     "tipos": ["Hada"],
-    "estadisticas": {"hp": 95, "ataque": 65, "defensa": 65, "velocidad": 60},
+    "estadisticas": {"hp": 175, "ataque": 95, "defensa": 95, "velocidad": 90},
     "ataques": {
       "Fuerza Lunar": {"tipo": "Hada", "potencia": 95, "precision": 100},
       "Brillo Mágico": {"tipo": "Hada", "potencia": 80, "precision": 100},
@@ -406,7 +393,7 @@
     "numero": 778,
     "descripcion": "Vive bajo un saco de tela que imita a Pikachu.",
     "tipos": ["Fantasma", "Hada"],
-    "estadisticas": {"hp": 55, "ataque": 90, "defensa": 80, "velocidad": 96},
+    "estadisticas": {"hp": 145, "ataque": 115, "defensa": 105, "velocidad": 116},
     "ataques": {
       "Carantoña": {"tipo": "Hada", "potencia": 90, "precision": 90},
       "Garra Umbría": {"tipo": "Fantasma", "potencia": 70, "precision": 100},
@@ -419,7 +406,7 @@
     "numero": 800,
     "descripcion": "Forma de vida que dormía bajo tierra.",
     "tipos": ["Psíquico"],
-    "estadisticas": {"hp": 97, "ataque": 107, "defensa": 101, "velocidad": 79},
+    "estadisticas": {"hp": 172, "ataque": 127, "defensa": 121, "velocidad": 104},
     "ataques": {
       "Prisma Láser": {"tipo": "Psíquico", "potencia": 80, "precision": 100},
       "Psíquico": {"tipo": "Psíquico", "potencia": 90, "precision": 100},
@@ -432,7 +419,7 @@
     "numero": 813,
     "descripcion": "Correr en círculos eleva su energía ígnea.",
     "tipos": ["Fuego"],
-    "estadisticas": {"hp": 50, "ataque": 71, "defensa": 40, "velocidad": 69},
+    "estadisticas": {"hp": 140, "ataque": 101, "defensa": 75, "velocidad": 99},
     "ataques": {
       "Patada Ígnea": {"tipo": "Fuego", "potencia": 85, "precision": 90},
       "Ataque Rápido": {"tipo": "Normal", "potencia": 40, "precision": 100},
@@ -445,7 +432,7 @@
     "numero": 814,
     "descripcion": "Concentra energía térmica en sus patas.",
     "tipos": ["Fuego"],
-    "estadisticas": {"hp": 65, "ataque": 86, "defensa": 60, "velocidad": 94},
+    "estadisticas": {"hp": 150, "ataque": 111, "defensa": 90, "velocidad": 119},
     "ataques": {
       "Patada Ígnea": {"tipo": "Fuego", "potencia": 85, "precision": 90},
       "Ataque Rápido": {"tipo": "Normal", "potencia": 40, "precision": 100},
@@ -458,7 +445,7 @@
     "numero": 815,
     "descripcion": "Patea guijarros convirtiéndolos en balones de fuego.",
     "tipos": ["Fuego"],
-    "estadisticas": {"hp": 80, "ataque": 116, "defensa": 75, "velocidad": 119},
+    "estadisticas": {"hp": 160, "ataque": 136, "defensa": 105, "velocidad": 139},
     "ataques": {
       "Balón Ígneo": {"tipo": "Fuego", "potencia": 120, "precision": 90},
       "Patada Salto Alta": {"tipo": "Lucha", "potencia": 130, "precision": 90},
@@ -471,7 +458,7 @@
     "numero": 892,
     "descripcion": "Un solo golpe de sus puños derriba a cualquiera.",
     "tipos": ["Lucha", "Siniestro"],
-    "estadisticas": {"hp": 100, "ataque": 130, "defensa": 100, "velocidad": 97},
+    "estadisticas": {"hp": 175, "ataque": 150, "defensa": 120, "velocidad": 117},
     "ataques": {
       "Azote Torrencial": {"tipo": "Agua", "potencia": 25, "precision": 100},
       "Golpe Bajo": {"tipo": "Siniestro", "potencia": 70, "precision": 100},
@@ -484,7 +471,7 @@
     "numero": 957,
     "descripcion": "Golpea rocas con su martillo artesanal.",
     "tipos": ["Hada", "Acero"],
-    "estadisticas": {"hp": 50, "ataque": 45, "defensa": 45, "velocidad": 58},
+    "estadisticas": {"hp": 140, "ataque": 80, "defensa": 80, "velocidad": 93},
     "ataques": {
       "Martillazo": {"tipo": "Acero", "potencia": 90, "precision": 85},
       "Golpe Cuerpo": {"tipo": "Normal", "potencia": 85, "precision": 100},
@@ -497,7 +484,7 @@
     "numero": 958,
     "descripcion": "Ataca a otros tipo Acero para robar sus piezas.",
     "tipos": ["Hada", "Acero"],
-    "estadisticas": {"hp": 65, "ataque": 55, "defensa": 55, "velocidad": 78},
+    "estadisticas": {"hp": 150, "ataque": 90, "defensa": 90, "velocidad": 103},
     "ataques": {
       "Martillazo": {"tipo": "Acero", "potencia": 90, "precision": 85},
       "Golpe Cuerpo": {"tipo": "Normal", "potencia": 85, "precision": 100},
@@ -510,7 +497,7 @@
     "numero": 959,
     "descripcion": "Balancea su gigantesco martillo como si nada.",
     "tipos": ["Hada", "Acero"],
-    "estadisticas": {"hp": 85, "ataque": 75, "defensa": 77, "velocidad": 94},
+    "estadisticas": {"hp": 165, "ataque": 105, "defensa": 102, "velocidad": 119},
     "ataques": {
       "Gigamartillo": {"tipo": "Acero", "potencia": 160, "precision": 80},
       "Carantoña": {"tipo": "Hada", "potencia": 90, "precision": 90},
