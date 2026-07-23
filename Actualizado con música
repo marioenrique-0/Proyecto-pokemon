@@ -6,7 +6,6 @@ import random
 ARCHIVO_POKEDEX = Path("pokedex.json")
 TABLA_TIPOS= Path("tabla.json")
 
-# 1. Inicialización de la pantalla principal
 if "pantalla_actual" not in st.session_state:
     st.session_state.pantalla_actual = "menu"
 def cargar_tabla_tipos() -> dict:
@@ -33,32 +32,31 @@ class Pokemon:
             st.image(self.sprite, width=200)
         except:
             st.warning("Imagen no encontrada.")
-        
+        #mostrar datos del pokemon
         st.write(f"**Tipos:** {', '.join(self.tipos)}")
         col1, col2 = st.columns(2)
         col1.write(f"**HP:** {self.hp}")
         col1.write(f"**Ataque:** {self.ataque}")
         col2.write(f"**Defensa:** {self.defensa}")
         col2.write(f"**Velocidad:** {self.velocidad}")
-        
+        #mostrar ataques del pokemon
         st.write("**Ataques:**")
         for nombre_ataque, info in self.ataques.items():
             st.write(f"- **{nombre_ataque}**: {info['tipo']} | Potencia: {info['potencia']} | Precisión: {info['precision']}")
 
     @classmethod
     # NOTA: equipo_excluido ahora es un diccionario (dict)
-    def seleccionar(cls, pokedex: dict, equipo_excluido: dict) -> "Pokemon | None":
+    def seleccionar(cls, pokedex: dict, equipo_excluido: dict) -> 'Pokemon | None':
         todos_los_nombres = list(pokedex.keys())
         
         # Extraemos los nombres de los objetos guardados en los VALUES del diccionario
-        nombres_elegidos = [p.nombre for p in equipo_excluido.values()]
-        
-        buscar = st.selectbox("Elige un Pokémon:", todos_los_nombres, key="selector_pkmn")
-        
+        nombres_elegidos=[]
+        for p in equipo_excluido.values():
+            nombres_elegidos.append(p.nombre) 
+        buscar = st.selectbox("Elige un Pokémon:", todos_los_nombres, key="selector_pkmn")    
         if buscar:
             datos = pokedex[buscar]
             stats = datos['estadisticas']
-            
             pkmn = cls(
                 nombre=buscar,
                 numero=datos['numero'],
@@ -79,12 +77,10 @@ class Pokemon:
                 if st.button(f"Añadir {buscar} al equipo"):
                     return pkmn
         return None
-# 3. Función de Selección de Equipos (Turnos Alternos)
+
 def selecion():
     st.title("Selección de Equipos Pokémon")
-
-    if "jugador_actual" not in st.session_state: 
-        st.session_state.jugador_actual = 1
+    if "jugador_actual" not in st.session_state: st.session_state.jugador_actual = 1
     # INICIALIZAR COMO DICCIONARIOS {} en lugar de listas []
     if "equipo_j1" not in st.session_state: 
         st.session_state.equipo_j1 = {}
@@ -98,28 +94,28 @@ def selecion():
         st.error("Archivo no encontrado")
         st.stop()
 
-    # --- MOSTRAR EQUIPOS EN DOS COLUMNAS ---
+    #mostrar equipos
     st.write("### Equipos Actuales")
     col_j1, col_j2 = st.columns(2)
-
+    
     with col_j1:
         st.markdown(f"**Jugador 1 ({len(st.session_state.equipo_j1)}/6)**")
         # Como las keys ya son el texto formateado, solo las imprimimos
-        for clave in st.session_state.equipo_j1.keys():
-            st.write(clave)
+        for clave_formateada in st.session_state.equipo_j1.keys():
+            st.write(clave_formateada)
             
     with col_j2:
         st.markdown(f"**Jugador 2 ({len(st.session_state.equipo_j2)}/6)**")
         # Imprimimos las keys directamente
-        for clave in st.session_state.equipo_j2.keys():
-            st.write(clave)
+        for clave_formateada in st.session_state.equipo_j2.keys():
+            st.write(clave_formateada)
 
     st.divider()
 
     # --- LÓGICA DE TURNOS O FIN DE SELECCIÓN ---
     if len(st.session_state.equipo_j1) == 6 and len(st.session_state.equipo_j2) == 6:
         st.success("¡Ambos equipos están completos!")
-                
+    
         col1, col2 = st.columns(2)
         with col1:
             if st.button("¡COMENZAR COMBATE!"):
@@ -127,50 +123,40 @@ def selecion():
                 st.rerun()
         with col2:
             if st.button("REINICIAR EQUIPOS"):
-                # .clear() funciona igual para vaciar diccionarios
                 st.session_state.equipo_j1.clear()
                 st.session_state.equipo_j2.clear()
                 st.session_state.jugador_actual = 1
                 st.rerun()
     else:
         st.subheader(f"Turno del Jugador {st.session_state.jugador_actual}")
-        if st.session_state.jugador_actual == 1:
-            equipo_activo = st.session_state.equipo_j1
-        else:
-            equipo_activo = st.session_state.equipo_j2
-        
+        equipo_activo = st.session_state.equipo_j1 if st.session_state.jugador_actual == 1 else st.session_state.equipo_j2
         if len(equipo_activo) < 6:
             resultado = Pokemon.seleccionar(pokedex, equipo_activo)
             if resultado:
                 # CREAMOS LA KEY CON EL FORMATO SOLICITADO
                 numero_pokemon = len(equipo_activo) + 1
                 clave_diccionario = f"{numero_pokemon}. {resultado.nombre}"
-                
-                # GUARDAMOS EN EL DICCIONARIO
                 equipo_activo[clave_diccionario] = resultado
-                
-                # Cambiar de turno
                 if st.session_state.jugador_actual == 1:
-                    st.session_state.jugador_actual = 2  
+                    st.session_state.jugador_actual = 2 
                 else:
                     st.session_state.jugador_actual = 1
                 st.rerun()
+
         else:
             if st.session_state.jugador_actual == 1:
                 st.session_state.jugador_actual = 2  
-            else:   
+            else:
                 st.session_state.jugador_actual = 1
             st.rerun()
         
-    
-
 def combate():
     if "pokemon_activo_j1" not in st.session_state:
         st.session_state.pokemon_activo_j1 = None
     if "pokemon_activo_j2" not in st.session_state:
         st.session_state.pokemon_activo_j2 = None
 
-    # Variables para guardar lo que eligió cada uno
+    # variables para guardar las acciones de cada jugador
     if "accion_j1" not in st.session_state:
         st.session_state.accion_j1 = None
     if "accion_j2" not in st.session_state:
@@ -178,61 +164,51 @@ def combate():
 
     j1 = pokemones_jugador(1)
     j2 = pokemones_jugador(2)
-
-    # Fase 1: Elegir los Pokémon iniciales
+    #Elegir primer pokemon
     if st.session_state.pokemon_activo_j1 is None:
-        elegir_primero(1, j1)
-        
+        elegir_primero(1, j1)   
     elif st.session_state.pokemon_activo_j2 is None:
-        st.info(f"El Jugador 1 enviará a **{st.session_state.pokemon_activo_j1.nombre}** a la batalla.")
         elegir_primero(2, j2)
-        
-    # Fase 2: Comienza la arena de combate
+
     else:
         menu_combate()
 
 def guardar_accion(num_jugador: int, tipo_accion: str, valor):
-    # Guardamos si eligió "ataque" o "cambio", y el nombre del ataque o el nuevo Pokémon
+    # Guardamos la accion del jugador
     accion = {"tipo": tipo_accion, "valor": valor}
-    
     if num_jugador == 1:
         st.session_state.accion_j1 = accion
     else:
         st.session_state.accion_j2 = accion
-        
+
     st.rerun()
 
 def mostrar_menu_acciones(num_jugador: int, pokemon_activo: Pokemon, equipo: dict):
-    # Variable para saber si estamos viendo los ataques o la mochila de Pokémon
+    # Variable para saber si estamos viendo los ataques de Pokémon
     var_menu = f"viendo_menu_j{num_jugador}"
     if var_menu not in st.session_state:
         st.session_state[var_menu] = "ataques"
-        
-    # --- MENÚ DE ATAQUES ---
+
+    # menu ataques
     if st.session_state[var_menu] == "ataques":
         st.write(f"**¿Qué hará {pokemon_activo.nombre}?**")
-        
-        # Mostrar botones de ataque
+        #botones ataques
         for nombre_ataque, datos in pokemon_activo.ataques.items():
             if st.button(f" {nombre_ataque}", key=f"btn_atk_j{num_jugador}_{nombre_ataque}"):
                 guardar_accion(num_jugador, "ataque", nombre_ataque)
-        
         st.write("---")
-        # Mostrar botón para cambiar Pokémon
-        if st.button(" Cambiar Pokémon", key=f"btn_cambiar_j{num_jugador}"):
+        # boton cambiar pokemon
+        if st.button("Cambiar Pokémon", key=f"btn_cambiar_j{num_jugador}"):
             st.session_state[var_menu] = "cambio"
             st.rerun()
-            
-    # --- MENÚ DE CAMBIO DE POKÉMON ---
+
     elif st.session_state[var_menu] == "cambio":
         st.write("**Elige un nuevo Pokémon:**")
-        if st.button("⬅ Volver a ataques", key=f"btn_volver_j{num_jugador}"):
+        if st.button(" Volver a ataques", key=f"btn_volver_j{num_jugador}"):
             st.session_state[var_menu] = "ataques"
             st.rerun()
-            
         # Mostrar equipo disponible
-        for nombre_lista, pokemon_lista in equipo.items():
-            # Evita mostrar el Pokémon que ya está peleando o los que tengan 0 HP
+        for pokemon_lista in equipo.values():
             if pokemon_lista.nombre != pokemon_activo.nombre and pokemon_lista.hp > 0:
                 if st.button(f"Sacar a {pokemon_lista.nombre} (HP: {int(pokemon_lista.hp)})", key=f"btn_sel_cambio_j{num_jugador}_{pokemon_lista.nombre}"):
                     guardar_accion(num_jugador, "cambio", pokemon_lista)
@@ -240,59 +216,43 @@ def mostrar_menu_acciones(num_jugador: int, pokemon_activo: Pokemon, equipo: dic
 
 def elegir_primero(num_jugador: int, equipo: dict)->Pokemon:
     st.write(f"### Jugador {num_jugador}: Elige tu Pokémon para empezar")
-    
-    # Creamos columnas para poner los botones uno al lado del otro
     columnas = st.columns(len(equipo))
-    
     for i, (nombre, pokemon) in enumerate(equipo.items()):
         with columnas[i]:
             st.markdown(f"**{pokemon.nombre}**")
-            
             st.image(pokemon.sprite, width=100)
-            
             if st.button("Elegir", key=f"btn_elegir_j{num_jugador}_{nombre}"):
-                
-                # Dependiendo del jugador, guardamos su elección
                 if num_jugador == 1:
                     st.session_state.pokemon_activo_j1 = pokemon
                 else:
                     st.session_state.pokemon_activo_j2 = pokemon
-                    
-                # Recargamos la pantalla
                 st.rerun()
 
 def pokemones_jugador(jugador: int)-> dict:
     pokemones_j = {}
     if jugador == 1:
-        equipo_base = st.session_state.equipo_j1  
+        equipo_base = st.session_state.equipo_j1
     else:
-        equipo_base =  st.session_state.equipo_j2
+        equipo_base = st.session_state.equipo_j2
     for pokemon in equipo_base.values():
         pokemones_j[pokemon.nombre] = pokemon 
     return pokemones_j
 
-def atacar(atacante: Pokemon, objetivo: Pokemon, nombre_ataque: str, log: list) -> None:
-    if atacante.hp <= 0:
-        log.append(("warning", f"{atacante.nombre} está debilitado."))
-        return
-
+def atacar(atacante: Pokemon, objetivo: Pokemon, nombre_ataque: str):
     datos_ataque = atacante.ataques[nombre_ataque]
     potencia = datos_ataque['potencia']
     precision = datos_ataque['precision']
     tipo = datos_ataque['tipo']
 
-    log.append(("write", f"**{atacante.nombre}** intenta usar **{nombre_ataque}**..."))
-
+    st.write(f"**{atacante.nombre}** intenta usar **{nombre_ataque}**...")
     if random.randint(1, 100) > precision:
-        log.append(("warning", "El ataque ha fallado"))
+        st.warning(f"¡El ataque ha fallado!")
+
     else:
+        # Calculamos y aplicamos el daño
         d = daño(atacante, objetivo, potencia, tipo)
         actualizar_hp(objetivo, d)
-        log.append(("success", f"¡Es un golpe directo! Causó {int(d)} puntos de daño."))
-
-def mostrar_log(log: list):
-    for tipo, mensaje in log:
-        getattr(st, tipo)(mensaje)
+        st.success(f"¡Es un golpe directo! Causó {int(d)} puntos de daño.")
         
 def daño(atacante:Pokemon, objetivo: Pokemon, potencia:int, tipo:str)-> float:
     E,B= 1,1
@@ -313,156 +273,50 @@ def actualizar_hp(objetivo: Pokemon, daño: float):
     if objetivo.hp < 0:
         objetivo.hp = 0
 
-def equipo_tiene_vida(jugador: int) -> bool:
-    equipo = pokemones_jugador(jugador)
-    for pokemon in equipo.values():
-        if pokemon.hp > 0:
-            return True
-    return False
-
-def iniciar_nuevo_turno():
-    st.session_state.accion_j1 = None
-    st.session_state.accion_j2 = None
-    st.session_state.turno_resuelto = False
-    st.session_state.log_turno = []
-
-def mostrar_pantalla_victoria(jugador_ganador: int):
-    st.balloons()
-    st.title("FELICIDADES")
-    st.success(f"🏆 ¡Has ganado, Jugador {jugador_ganador}! 🏆")
-    st.write("El equipo rival se quedó sin Pokémon disponibles.")
-
-    if st.button("Volver al Menú Principal"):
-        # Reiniciamos todo el estado del combate y de la selección
-        for clave in [
-            "pantalla_actual", "modo_juego",
-            "equipo_j1", "equipo_j2", "jugador_actual",
-            "pokemon_activo_j1", "pokemon_activo_j2",
-            "accion_j1", "accion_j2",
-            "turno_resuelto", "log_turno",
-            "viendo_menu_j1", "viendo_menu_j2",
-        ]:
-            if clave in st.session_state:
-                del st.session_state[clave]
-        st.session_state.pantalla_actual = "menu"
-        st.rerun()
-
-def mostrar_menu_cambio_obligatorio(num_jugador: int):
-
-    equipo = pokemones_jugador(num_jugador)
-
-    if num_jugador == 1:
-        pokemon_activo = st.session_state.pokemon_activo_j1
-    else:
-        pokemon_activo = st.session_state.pokemon_activo_j2
-    disponibles=[]
-    for pokemon in equipo.values():
-        if pokemon.hp>0 and pokemon.nombre != pokemon_activo.nombre:
-            disponibles.append(pokemon)
-
-    columnas = st.columns(len(disponibles))
-
-    for i, pokemon in enumerate(disponibles):
-        with columnas[i]:
-            st.image(pokemon.sprite, width=120)
-            st.markdown(f"{pokemon.nombre}")
-            st.write(f" HP: {int(pokemon.hp)}")
-
-            if st.button(
-                f"Elegir",
-                key=f"cambio_obligatorio_{num_jugador}_{pokemon.nombre}"
-            ):
-                
-                if num_jugador == 1:
-                    
-                    st.session_state.pokemon_activo_j1 = pokemon
-                else:
-                    st.session_state.pokemon_activo_j2 = pokemon
-                iniciar_nuevo_turno()
-
-                st.success(f"¡{pokemon.nombre} entra al combate!")
-                st.rerun()
-
 def menu_combate():
-    if "turno_resuelto" not in st.session_state:
-        st.session_state.turno_resuelto = False
-    if "log_turno" not in st.session_state:
-        st.session_state.log_turno = []
-
-    if st.session_state.pokemon_activo_j1.hp <= 0:
-        if not equipo_tiene_vida(1):
-            mostrar_pantalla_victoria(2)
-            return
-        st.warning(f"Jugador 1: tu {st.session_state.pokemon_activo_j1.nombre} se debilitó.")
-        mostrar_menu_cambio_obligatorio(1)
-        return
-
-    if st.session_state.pokemon_activo_j2.hp <= 0:
-        if not equipo_tiene_vida(2):
-            mostrar_pantalla_victoria(1)
-            return
-        st.warning(f"Jugador 2: tu {st.session_state.pokemon_activo_j2.nombre} se debilitó.")
-        mostrar_menu_cambio_obligatorio(2)
-        return
-    st.subheader(" COMBATE ")
+    st.subheader("COMBATE")
     st.divider()
 
+    # --- FASE DE RESOLUCIÓN (Ambos han elegido) ---
     if st.session_state.accion_j1 is not None and st.session_state.accion_j2 is not None:
-
         accion1 = st.session_state.accion_j1
         accion2 = st.session_state.accion_j2
+        # 1. RESOLVER CAMBIOS DE POKÉMON PRIMERO (Tienen prioridad de turno)
+        if accion1["tipo"] == "cambio":
+            st.session_state.pokemon_activo_j1 = accion1["valor"]
+            st.info(f"¡El Jugador 1 cambió a {st.session_state.pokemon_activo_j1.nombre}!")
+            
+        if accion2["tipo"] == "cambio":
+            st.session_state.pokemon_activo_j2 = accion2["valor"]
+            st.info(f"¡El Jugador 2 cambió a {st.session_state.pokemon_activo_j2.nombre}!")
 
-        if not st.session_state.turno_resuelto:
-            log = []
-
-            if accion1["tipo"] == "cambio":
-                st.session_state.pokemon_activo_j1 = accion1["valor"]
-                log.append(("info", f"¡El Jugador 1 cambió a {st.session_state.pokemon_activo_j1.nombre}!"))
-
-            if accion2["tipo"] == "cambio":
-                st.session_state.pokemon_activo_j2 = accion2["valor"]
-                log.append(("info", f"¡El Jugador 2 cambió a {st.session_state.pokemon_activo_j2.nombre}!"))
-
-            pokemon1 = st.session_state.pokemon_activo_j1
-            pokemon2 = st.session_state.pokemon_activo_j2
-
-            if accion1["tipo"] == "ataque" and accion2["tipo"] == "ataque":
-                if pokemon1.velocidad > pokemon2.velocidad:
-                    atacar(pokemon1, pokemon2, accion1["valor"], log)
-                    if pokemon2.hp > 0:
-                        atacar(pokemon2, pokemon1, accion2["valor"], log)
-                elif pokemon2.velocidad > pokemon1.velocidad:
-                    atacar(pokemon2, pokemon1, accion2["valor"], log)
-                    if pokemon1.hp > 0:
-                        atacar(pokemon1, pokemon2, accion1["valor"], log)
-                else:
-                    r = random.randint(1, 2)
-                    if r == 1:
-                        atacar(pokemon1, pokemon2, accion1["valor"], log)
-                        if pokemon2.hp > 0:
-                            atacar(pokemon2, pokemon1, accion2["valor"], log)
-                    else:
-                        atacar(pokemon2, pokemon1, accion2["valor"], log)
-                        if pokemon1.hp > 0:
-                            atacar(pokemon1, pokemon2, accion1["valor"], log)
-
-            elif accion1["tipo"] == "ataque" and accion2["tipo"] == "cambio":
-                atacar(pokemon1, pokemon2, accion1["valor"], log)
-
-            elif accion2["tipo"] == "ataque" and accion1["tipo"] == "cambio":
-                atacar(pokemon2, pokemon1, accion2["valor"], log)
-
-            st.session_state.log_turno = log
-            st.session_state.turno_resuelto = True
-
-        # --- ESTO SE MUESTRA SIEMPRE, sin importar cuántos reruns pasen ---
-        mostrar_log(st.session_state.log_turno)
+        # Refrescamos las variables después de los posibles cambios
+        pokemon1 = st.session_state.pokemon_activo_j1
+        pokemon2 = st.session_state.pokemon_activo_j2
+        st.divider()
+        # 2. RESOLVER ATAQUES SEGÚN LA VELOCIDAD
+        # Si ambos eligieron atacar
+        if accion1["tipo"] == "ataque" and accion2["tipo"] == "ataque":
+            if pokemon1.velocidad >= pokemon2.velocidad:
+                atacar(pokemon1, pokemon2, accion1["valor"])
+                if pokemon2.hp > 0:
+                    atacar(pokemon2, pokemon1, accion2["valor"])
+            else:
+                atacar(pokemon2, pokemon1, accion2["valor"])
+                if pokemon1.hp > 0:
+                    atacar(pokemon1, pokemon2, accion1["valor"])
+                    
+        # Si solo el J1 atacó (porque el J2 hizo un cambio)
+        elif accion1["tipo"] == "ataque" and accion2["tipo"] == "cambio":
+            atacar(pokemon1, pokemon2, accion1["valor"])
+            
+        # Si solo el J2 atacó (porque el J1 hizo un cambio)
+        elif accion2["tipo"] == "ataque" and accion1["tipo"] == "cambio":
+            atacar(pokemon2, pokemon1, accion2["valor"])
 
         st.divider()
 
-        pokemon1 = st.session_state.pokemon_activo_j1
-        pokemon2 = st.session_state.pokemon_activo_j2
-
+        # Mostramos los Pokémon actualizados tras recibir los daños
         col1, col2 = st.columns(2)
         with col1:
             st.write(f"**{pokemon1.nombre}** - HP: {int(pokemon1.hp)}")
@@ -470,15 +324,16 @@ def menu_combate():
         with col2:
             st.write(f"**{pokemon2.nombre}** - HP: {int(pokemon2.hp)}")
             st.image(pokemon2.sprite, width=150)
-
+            
+        # Botón para reiniciar el turno y continuar
         if st.button("Siguiente turno"):
-            iniciar_nuevo_turno()
+            st.session_state.accion_j1 = None
+            st.session_state.accion_j2 = None
             st.rerun()
-
+            
     else:
         col1, col2 = st.columns(2)
         
-        # COLUMNA DEL JUGADOR 1
         with col1:
             st.write(f"### Lado J1: {st.session_state.pokemon_activo_j1.nombre}")
             st.write(f"**HP: {int(st.session_state.pokemon_activo_j1.hp)}**")
@@ -490,7 +345,6 @@ def menu_combate():
             else:
                 st.success("Jugador 1 listo. Esperando al rival...")
 
-        # COLUMNA DEL JUGADOR 2
         with col2:
             st.write(f"### Lado J2: {st.session_state.pokemon_activo_j2.nombre}")
             st.write(f"**HP: {int(st.session_state.pokemon_activo_j2.hp)}**")
@@ -502,65 +356,118 @@ def menu_combate():
             else:
                 st.success(" Jugador 2 listo. Esperando al rival...")
 
+def mostrar_pantalla_victoria(jugador_ganador: int):
+    # Desactivamos la música general del controlador para que no se superponga
+    st.session_state.reproducir_musica = False 
+    
+    st.balloons()
+    st.title("FELICIDADES")
+    st.success(f"🏆 ¡Has ganado, Jugador {jugador_ganador}! 🏆")
+    st.write("El equipo rival se quedó sin Pokémon disponibles.")
+    
+    # --- REPRODUCTOR DE MÚSICA DE VICTORIA ---
+    try:
+        st.audio("victoria.mp3", format="audio/mp3", loop=True, autoplay=True, key="musica_victoria")
+    except Exception:
+        st.warning("Archivo de música 'victoria.mp3' no encontrado.")
+    # ------------------------------------------
+
+    if st.button("Volver al Menú Principal"):
+        # Reiniciamos todo el estado del combate y de la selección
+        for clave in [
+            "pantalla_actual",
+            "modo_juego",
+            "equipo_j1",
+            "equipo_j2",
+            "jugador_actual",
+            "pokemon_activo_j1",
+            "pokemon_activo_j2",
+            "accion_j1",
+            "accion_j2",
+            "turno_resuelto",
+            "log_turno",
+            "viendo_menu_j1",
+            "viendo_menu_j2",
+        ]:
+            if clave in st.session_state:
+                del st.session_state[clave]
+        
+        st.session_state.pantalla_actual = "menu"
+        st.rerun()
+
 def menus():
     # 1. INICIALIZAR ESTADOS NATIVOS
     if "reproducir_musica" not in st.session_state:
-        st.session_state.reproducir_musica = False  # Inicia apagado por defecto
+        st.session_state.reproducir_musica = False
     if "pantalla_actual" not in st.session_state:
         st.session_state.pantalla_actual = "menu"
+
+    # --- CONTROLADOR DE MÚSICA DINÁMICO ---
+    if st.session_state.reproducir_musica:
+        # Definimos qué canción suena según la pantalla actual
+        if st.session_state.pantalla_actual == "combate":
+            archivo_musica = "combate.mp3"
+            clave_audio = "musica_combate"  # Key única para que no se reinicie en combate
+        else:
+            archivo_musica = "eleccion.mp3"
+            clave_audio = "musica_eleccion"  # Key única para la selección
+        
+        try:
+            with st.empty():
+                st.audio(archivo_musica, format="audio/mp3", loop=True, autoplay=True, key=clave_audio)
+        except Exception:
+            st.warning(f"Archivo de música '{archivo_musica}' no encontrado.")
 
     # --- PANTALLA: MENÚ INICIAL ---
     if st.session_state.pantalla_actual == "menu":
         st.subheader("MENU INICIAL")
         try:
             st.video("Intro.mp4", autoplay=True)
-        except FileNotFoundError:
+        except Exception:
             st.warning("Video no encontrado.")
-
+        
         col1, col2, col3 = st.columns(3)
         with col2:
             if st.button("INICIAR JUEGO", use_container_width=True):
                 st.session_state.modo_juego = "1vs1"
                 st.session_state.pantalla_actual = "juego"
+                st.session_state.reproducir_musica = True  # ¡Arranca la música al iniciar!
                 st.rerun()
 
     # --- PANTALLA: SELECCIÓN DE JUEGO / POKÉMON ---
     elif st.session_state.pantalla_actual == "juego":
         col_titulo, col_config = st.columns([0.85, 0.15])
-        
         with col_titulo:
             st.subheader(f"Modo de juego: {st.session_state.get('modo_juego', 'Normal')}")
-            
         with col_config:
-            # 2. CONFIGURACIÓN (DENTRO DEL ENGRANAJE)
             with st.popover("⚙"):
                 st.subheader("Configuración")
-                
-                # Opción solicitada para activar la música desde el engranaje
                 musica_activa = st.toggle("Activar Música", value=st.session_state.reproducir_musica)
                 if musica_activa != st.session_state.reproducir_musica:
                     st.session_state.reproducir_musica = musica_activa
                     st.rerun()
-
-        # 3. REPRODUCTOR GLOBAL (FUERA DE LA CONFIGURACIÓN)
-        # Colocado en la raíz de la pantalla. Al activarse el toggle, 
-        # arranca automáticamente gracias al autoplay=True.
-        if st.session_state.reproducir_musica:
-            try:
-                st.audio("eleccion.mp3", format="audio/mp3", loop=True, autoplay=True)
-            except FileNotFoundError:
-                st.warning("Archivo de música 'eleccion.mp3' no encontrado.")
-
-        # Botón para regresar al Menú Principal
+        
         if st.button("Volver al Menú Principal"):
             st.session_state.pantalla_actual = "menu"
-            st.session_state.reproducir_musica = False  
+            st.session_state.reproducir_musica = False
             st.rerun()
-            
-        # Ejecución de tu función de selección de personajes
+
+        # Botón de prueba para ir a combatir (puedes mover esto dentro de selecion())
+        if st.button("¡IR A COMBATIR! ⚔️"):
+            st.session_state.pantalla_actual = "combate"
+            st.rerun()
+        
         selecion()
 
     # --- PANTALLA: COMBATE ---
     elif st.session_state.pantalla_actual == "combate":
+        st.subheader("¡EN COMBATE! 🥊")
+        
+        # Botón para rendirse o volver
+        if st.button("Terminar Combate"):
+            st.session_state.pantalla_actual = "juego"
+            st.rerun()
+        
         combate()
+
 menus()
